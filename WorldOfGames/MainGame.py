@@ -3,9 +3,11 @@
 from Live import load_game, welcome
 
 
-welcome("""Christianaaa
+welcome("""Christian Aaaron
 
-Parados carvajal
+Prados carvajal 
+
+Prueba
 """)
 load_game()
 

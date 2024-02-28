@@ -3,12 +3,7 @@
 from Live import load_game, welcome
 
 
-welcome("""Christian Aaaron
-
-Prados carvajal 
-
-Prueba
-""")
+welcome("""Christian Aaaron""")
 load_game()
 
 

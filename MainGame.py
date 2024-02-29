@@ -7,7 +7,7 @@ welcome("""Christian Aaaron
 
 Carvajal Prados 
 
-Prueba
+Prueba 1 2 3 4 5 6
 """)
 load_game()
 

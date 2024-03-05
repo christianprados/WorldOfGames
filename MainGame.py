@@ -3,7 +3,7 @@
 from Live import load_game, welcome
 
 
-welcome("""Guy""")
+welcome("""Christian Prados""")
 load_game()
 
 

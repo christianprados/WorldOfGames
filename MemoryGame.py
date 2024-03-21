@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from communfunctions import input_with_validation_integer
+from Utils import input_with_validation_integer
 import time
 import random
 

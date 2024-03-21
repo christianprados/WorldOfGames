@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 
-from communfunctions import select
+from Utils import select
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame

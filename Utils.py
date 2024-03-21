@@ -1,5 +1,12 @@
+import os
+#Global Variables used in the game
 
+SCORES_FILE_NAME = "Scores.txt"
+BAD_RETURN_CODE = 400
 
+#Function that clears the screen
+def Screen_cleaner():
+    os.system('cls')
 
 #Validates the user input. If it is not an integer try again
 def input_with_validation_integer(message):
@@ -17,6 +24,20 @@ def input_with_validation_float(message):
         try:
             number = float(input(message))
             return number
+        except:
+            print('Please try again')
+            continue
+
+#Validates the user input for yes or no.
+def input_with_validation_yes_no(message):
+    while True:
+        try:
+            choice = input(message)
+            if choice == 'yes' or choice == 'no':
+                return choice
+            else:
+                print('Please try again')
+                continue
         except:
             print('Please try again')
             continue

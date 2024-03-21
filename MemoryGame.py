@@ -27,11 +27,25 @@ def is_list_equal(lista, listb):
 def play(difficulty):
     print(f"Your Difficulty is {difficulty}")
     randomlist = generate_sequence(difficulty)
+    print("Focuse on the number in",)
+#Counter to tell the user to start concentrate before the number appears
+    counter = 5
+    for i in range(5):
+        print(counter, end='')
+        time.sleep(1)
+        print(end='\r')
+        counter-=1
+
     print(f"The Numbers Are:   {randomlist}", end='')
+
     time.sleep(0.7)
+
     ## Hide the numbers after 0.7 seconds
+
     print(end='\r')
+
     print("Try to remember")
+
     userlist = get_list_from_user(difficulty)
 
     if is_list_equal(randomlist,userlist):

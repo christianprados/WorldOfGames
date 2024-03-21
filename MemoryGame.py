@@ -28,7 +28,7 @@ def play(difficulty):
     print(f"Your Difficulty is {difficulty}")
     randomlist = generate_sequence(difficulty)
     print("Focuse on the number in",)
-#Counter to tell the user to start concentrate before the number appears
+    #Counter to tell the user to start concentrate before the number appears
     counter = 5
     for i in range(5):
         print(counter, end='')
@@ -36,7 +36,7 @@ def play(difficulty):
         print(end='\r')
         counter-=1
 
-    print(f"The Numbers Are:   {randomlist}", end='')
+    print(f"The Numbers Are: {randomlist}", end='')
 
     time.sleep(0.7)
 

@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+import Score
 from Utils import input_with_validation_integer
 import time
 import random
+import sys
 
 
 def generate_sequence(difficulty):
@@ -42,7 +44,8 @@ def play(difficulty):
 
     ## Hide the numbers after 0.7 seconds
 
-    print(end='\r')
+    sys.stdout.write('\r')
+    sys.stdout.flush()
 
     print("Try to remember")
 
@@ -50,6 +53,8 @@ def play(difficulty):
 
     if is_list_equal(randomlist,userlist):
         print("You have Won the Memory Game")
+        # add the score to scores.txt
+        Score.add_score(difficulty)
     else:
         print("You have lost the Memory Game")
 

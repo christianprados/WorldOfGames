@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from Utils import input_with_validation_integer
 import random
+import Score
 
 
 def gen_secret_number(difficulty):
@@ -26,6 +27,8 @@ def play(difficulty):
     user_number = get_guess_from_user(difficulty)
     if compare_results(secret_number,user_number):
         print("You have Won the Guess Game")
+        # add the score to scores.txt
+        Score.add_score(difficulty)
     else:
         print("You have lost the Guess Game")
 

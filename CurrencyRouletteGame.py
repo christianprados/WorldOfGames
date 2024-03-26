@@ -3,6 +3,7 @@
 from Utils import input_with_validation_float
 import requests
 import random
+import Score
 
 
 def get_money_interval(difficulty):
@@ -29,6 +30,8 @@ def play(difficulty):
 
     if guess_interval[0] <= guess <= guess_interval[1]:
         print("You Won the CurrencyRoulette Game")
+        #add the score to scores.txt
+        Score.add_score(difficulty)
     else:
         print("You lost the CurrencyRouletteGame")
 

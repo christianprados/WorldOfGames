@@ -5,6 +5,7 @@ from Utils import input_with_validation_yes_no, Screen_cleaner
 import time
 
 
+
 welcome("""Christian Prados""")
 while True:
     load_game()
@@ -15,11 +16,6 @@ while True:
         continue
     else:
         break
-
-
-
-
-
 
 
 

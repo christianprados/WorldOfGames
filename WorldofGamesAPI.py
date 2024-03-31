@@ -34,6 +34,7 @@ def score_server():
 def play_memory_game():
     if request.is_json:
         data = request.get_json()
+        MemoryGame.play(data[difficulty])
 
 
 

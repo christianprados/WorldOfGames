@@ -1,10 +1,11 @@
 import os
-from flask import Flask,abort
+from flask import Flask,abort,request
 import Utils
+import MemoryGame
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/Score")
 def score_server():
     try:
         with open('Scores.txt', 'r') as file:
@@ -26,6 +27,15 @@ def score_server():
                                 <h1><div id="score" style="color:red">{Utils.BAD_RETURN_CODE}</div></h1>
                             </body>
                     </html>"""
+
+
+@app.post("/MemoryGame")
+
+def play_memory_game():
+    if request.is_json:
+        data = request.get_json()
+
+
 
 if __name__ == '__main__':
     #host = os.getenv('FLASK_HOST', '0.0.0.0')

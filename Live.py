@@ -27,7 +27,7 @@ def load_game():
 
     if game == 1:
         print("Welcome to Memory Game")
-        MemoryGame.play(difficulty)
+        print(MemoryGame.play(difficulty))
     elif game == 2:
         print("Welcome to Guess Game")
         GuessGame.play(difficulty)

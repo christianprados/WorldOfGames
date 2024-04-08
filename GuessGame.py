@@ -2,10 +2,14 @@
 from Utils import input_with_validation_integer
 import random
 import Score
+import requests
 
 
-def gen_secret_number(difficulty):
-    return random.randint(1,difficulty)
+def request_secret_number(difficulty):
+    json_post = {"difficulty": difficulty}
+    response = requests.post("http://127.0.0.1:30000/Generate_Secret", json=json_post)
+    secret = response.json()
+    return secret["secret"]
 
 def get_guess_from_user(difficulty):
     while True:
@@ -15,17 +19,16 @@ def get_guess_from_user(difficulty):
         else:
             print(f"The number is high than {difficulty}, please try again")
 
-def compare_results(secret_number,guess_number):
-    if secret_number == guess_number:
-        return True
-    else:
-        return False
+def fetch_compare_result(secret_number,guess_number):
+    json_post = {"data1":secret_number,"data2":guess_number}
+    result = requests.post("http://127.0.0.1:30000/Compare",json=json_post).json()
+    return result["result"]
 
 def play(difficulty):
     print(f"Your Difficulty is {difficulty}")
-    secret_number = gen_secret_number(difficulty)
+    secret_number = request_secret_number(difficulty)
     user_number = get_guess_from_user(difficulty)
-    if compare_results(secret_number,user_number):
+    if fetch_compare_result(secret_number,user_number):
         print("You have Won the Guess Game")
         # add the score to scores.txt
         Score.add_score(difficulty)

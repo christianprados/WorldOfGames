@@ -7,16 +7,17 @@ import sys
 import requests
 
 #The function sends the difficulty t the backend to generate a random sequence
-def generate_sequence(difficulty):
+def request_sequence(difficulty):
     json_post = {"difficulty": f"{difficulty}"}
     response = requests.post("http://127.0.0.1:30000/Generate_Sequence", json=json_post)
     randomlist = response.json()
     return randomlist["sequence"]
+
 #Get the numbers from the users and send them to the backend server to generate the user list
 def get_list_from_user(difficulty):
     for i in range(0, difficulty):
         number = input_with_validation_integer("Enter a number: ")
-        json_post = {"number": f"{number}"}
+        json_post = {"number": number}
         requests.post("http://127.0.0.1:30000/User_list", json=json_post)
     response = requests.get("http://127.0.0.1:30000/User_list")
     userlist = response.json()
@@ -26,15 +27,16 @@ def get_list_from_user(difficulty):
 
 
 def is_list_equal(lista, listb):
-    if lista == listb:
-        return True
-    else:
-        return False
+    json_post = {"data1":lista,"data2":listb}
+    result = (requests.post("http://127.0.0.1:30000/Compare", json=json_post)).json()
+
+    return result["result"]
+
 
 def play(difficulty):
     print(f"Your Difficulty is {difficulty}")
     #call the generate sequence function
-    randomlist = generate_sequence(difficulty)
+    randomlist = request_sequence(difficulty)
     print("Focuse on the number in",)
     #Counter to tell the user to start concentrate before the number appears
     counter = 5

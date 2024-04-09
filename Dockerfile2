@@ -1,0 +1,16 @@
+FROM python:3.12.2-alpine3.19
+
+# Set the working directory in the container
+WORKDIR /WorldofGames
+
+# Copy the current directory contents into the container at /app
+COPY Score.py CurrencyRouletteGame.py GuessGame.py Live.py MainGame.py MemoryGame.py Utils.py /WorldofGames
+
+# Install dependencies
+RUN pip install requests
+
+# Command to run the API application
+CMD ["python", "MainGame.py"]
+
+LABEL authors="ChristianPrados"
+

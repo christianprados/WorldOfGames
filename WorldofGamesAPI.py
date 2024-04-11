@@ -113,6 +113,6 @@ def score_server():
 
 
 if __name__ == '__main__':
-    # host = os.getenv('FLASK_HOST', '0.0.0.0')
-    port = os.getenv('FLASK_PORT', '30000')
-    app.run(port=int(port), debug=True)
+    host = '0.0.0.0'
+    port = '30000'
+    app.run(host, port=int(port), debug=True)

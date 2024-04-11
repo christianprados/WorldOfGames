@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 from Utils import input_with_validation_integer
-import random
 import Score
 import requests
 

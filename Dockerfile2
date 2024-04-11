@@ -10,7 +10,7 @@ COPY Score.py CurrencyRouletteGame.py GuessGame.py Live.py MainGame.py MemoryGam
 RUN pip install requests
 
 # Command to run the API application
-CMD ["python", "MainGame.py"]
+#CMD ["python", "MainGame.py"]
 
 LABEL authors="ChristianPrados"
 

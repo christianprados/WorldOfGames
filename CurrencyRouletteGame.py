@@ -8,7 +8,7 @@ import Score
 
 def fetch_money_interval(difficulty):
     json_post = {"difficulty": difficulty}
-    interval = requests.post("http://127.0.0.1:30000/Money_interval", json=json_post).json()
+    interval = requests.post("http://worldofgamesapi:30000/Money_interval", json=json_post).json()
     return interval
 
 

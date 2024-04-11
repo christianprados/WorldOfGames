@@ -6,7 +6,7 @@ import requests
 
 def request_secret_number(difficulty):
     json_post = {"difficulty": difficulty}
-    response = requests.post("http://127.0.0.1:30000/Generate_Secret", json=json_post)
+    response = requests.post("http://worldofgamesapi:30000/Generate_Secret", json=json_post)
     secret = response.json()
     return secret["secret"]
 
@@ -20,7 +20,7 @@ def get_guess_from_user(difficulty):
 
 def fetch_compare_result(secret_number,guess_number):
     json_post = {"data1":secret_number,"data2":guess_number}
-    result = requests.post("http://127.0.0.1:30000/Compare",json=json_post).json()
+    result = requests.post("http://worldofgamesapi:30000/Compare",json=json_post).json()
     return result["result"]
 
 def play(difficulty):

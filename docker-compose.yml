@@ -1,0 +1,23 @@
+version: '2.4'
+
+services:
+  service1:
+    container_name: worldofgamesapi
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    ports:
+      - "30000:30000"
+    networks:
+      - w_o_Games_Network
+
+  service2:
+    container_name: worldofgames
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    networks:
+      - w_o_Games_Network
+
+networks:
+  w_o_Games_Network:

@@ -8,7 +8,7 @@ import requests
 #The function sends the difficulty t the backend to generate a random sequence
 def request_sequence(difficulty):
     json_post = {"difficulty": f"{difficulty}"}
-    response = requests.post("http://172.17.0.2:30000/Generate_Sequence", json=json_post)
+    response = requests.post("http://worldofgamesapi:30000/Generate_Sequence", json=json_post)
     randomlist = response.json()
     return randomlist["sequence"]
 
@@ -17,8 +17,8 @@ def get_list_from_user(difficulty):
     for i in range(0, difficulty):
         number = input_with_validation_integer("Enter a number: ")
         json_post = {"number": number}
-        requests.post("http://172.17.0.2:30000/User_list", json=json_post)
-    response = requests.get("http://172.17.0.2:30000/User_list")
+        requests.post("http://worldofgamesapi:30000/User_list", json=json_post)
+    response = requests.get("http://worldofgamesapi:30000/User_list")
     userlist = response.json()
     return userlist["userlist"]
 
@@ -26,7 +26,7 @@ def get_list_from_user(difficulty):
 
 def is_list_equal(lista, listb):
     json_post = {"data1":lista,"data2":listb}
-    result = (requests.post("http://172.17.0.2:30000/Compare", json=json_post)).json()
+    result = (requests.post("http://worldofgamesapi:30000/Compare", json=json_post)).json()
 
     return result["result"]
 
